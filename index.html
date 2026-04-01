@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wanderlust | Explore The World</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    
+    <nav class="navbar">
+        <div class="logo">Wanderlust</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#destinations" class="active">Destinations</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="btn-primary">Book Now</button>
+    </nav>
+
+    <header id="home" class="hero">
+        <div class="hero-content fade-in">
+            <span class="badge">Discover the Extraordinary</span>
+            <h1>Explore The World's Most <br> <span class="text-gradient">Breathtaking Places</span></h1>
+            <p>Embark on a journey to the most iconic, beautiful, and awe-inspiring destinations on the planet. Your next adventure awaits.</p>
+            <div class="hero-buttons">
+                <a href="#destinations" class="btn-primary">Start Exploring</a>
+                <a href="#video" class="btn-secondary">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                    Watch Video
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="destinations" class="destinations-section">
+        <div class="section-header fade-in">
+            <h2>Popular Destinations</h2>
+            <p>Handpicked gems for your ultimate bucket list.</p>
+        </div>
+        
+        <div class="grid">
+            <!-- Card 1 -->
+            <div class="card fade-in">
+                <div class="card-image">
+                    <img src="./assets/mount_fuji.png" alt="Mount Fuji, Japan">
+                    <div class="card-badge">Asia</div>
+                </div>
+                <div class="card-content">
+                    <div class="location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Japan
+                    </div>
+                    <h3>Mount Fuji</h3>
+                    <p>Experience the serene beauty of Japan's iconic snow-capped volcano surrounded by stunning cherry blossoms.</p>
+                    <div class="card-footer">
+                        <span class="price">From $1,299</span>
+                        <a href="#" class="btn-text">View Details <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card fade-in" style="animation-delay: 0.1s;">
+                <div class="card-image">
+                    <img src="./assets/santorini.png" alt="Santorini, Greece">
+                    <div class="card-badge">Europe</div>
+                </div>
+                <div class="card-content">
+                    <div class="location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Greece
+                    </div>
+                    <h3>Santorini</h3>
+                    <p>Wander through the picturesque white-washed buildings and iconic blue domes against crystal clear waters.</p>
+                    <div class="card-footer">
+                        <span class="price">From $1,499</span>
+                        <a href="#" class="btn-text">View Details <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card fade-in" style="animation-delay: 0.2s;">
+                <div class="card-image">
+                    <img src="./assets/machu_picchu.png" alt="Machu Picchu, Peru">
+                    <div class="card-badge">South America</div>
+                </div>
+                <div class="card-content">
+                    <div class="location">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Peru
+                    </div>
+                    <h3>Machu Picchu</h3>
+                    <p>Uncover the mysteries of the ancient Incan citadel set high in the breathtaking Andes Mountains.</p>
+                    <div class="card-footer">
+                        <span class="price">From $1,899</span>
+                        <a href="#" class="btn-text">View Details <span>&rarr;</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Wanderlust Travel. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple intersection observer for scroll fade-in animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
